@@ -13,7 +13,7 @@ Study sources
 - Command based language(not programming language with loops, conditions etc.)
  
 ** Query: A database query is a request for a database’s data so we can retrieve or manipulate it.
-<br> (Reference: https://www.educative.io/blog/what-is-database-query-sql-nosql)
+<br>    (Reference: https://www.educative.io/blog/what-is-database-query-sql-nosql)
   
 ### 2) SQL is used to
 - Create new Databases
