@@ -12,7 +12,8 @@ Study sources
   : Oracle, MS Access, MS SQL Server, MySQL, DB2, Sybase etc.
 - Command based language(not programming language with loops, conditions etc.)
  
-** Query: 
+** Query: A database query is a request for a database’s data so we can retrieve or manipulate it.
+(Reference: https://www.educative.io/blog/what-is-database-query-sql-nosql)
  
 ### 2) SQL is used to
 - Create new Databases
