@@ -2,7 +2,7 @@
 
 Study sources
 - https://www.youtube.com/watch?v=3J0n7BABEsU
-- 비전공자도 쉽게 배워 바로 써먹는 실무 활용 SQL
+- 비전공자도 쉽게 배워 바로 써먹는 실무 활용 SQL<br>
   (Practical SQL that even non-majors can easily learn and use right away)
 - (to be added)
 
