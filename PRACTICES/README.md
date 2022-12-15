@@ -32,7 +32,7 @@
 　**ROUND**: returns a number rounded to a certain number of decimal places  
 
 ### Type
-　**NULL**: represents a lack of data
+　**NULL**: represents a lack of data  
 　　~ **IGNORE NULLS**: let null values of expr are eliminated from the calculation  
 　**EXTRACT**: extracts and returns the value of a specified datetime field from a datetime or interval value expression  
 　　~ **YEAR**: extract only YEAR  
