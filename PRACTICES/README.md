@@ -34,13 +34,23 @@
 ### Type
 　**NULL**: represents a lack of data  
 　　~ **IGNORE NULLS**: let null values of expr are eliminated from the calculation  
+　**NVL**: allows you to replace null with a more meaningful alternative in the results of a query  
 　**EXTRACT**: extracts and returns the value of a specified datetime field from a datetime or interval value expression  
 　　~ **YEAR**: extract only YEAR  
 　　~ **MONTH**: extract only MONTH  
  
+### Set Operators
+　**UNION**: combines result sets of two or more SELECT statements into a single result set  
+　　~ **ALL**: retain the duplicate rows  
+　**MINUS**: return all rows in the first SELECT statement that are not returned by the second SELECT statement  
+　**INTERSECT**: compares the result of two queries and returns the distinct rows that are output by both queries
  
+### Symbols
+　**=** : Equality test  
+　**<>** : Inequality test   
+　**(+)** : perform outer joins on two or more tables  
+　**%** : matches any string of zero or more characters except null   
+　**_** : matches any single character   
  
- 
-　****:
 
-(Still writing... ~실습2)
+(Still writing... ~실습4)
