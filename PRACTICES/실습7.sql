@@ -1,11 +1,11 @@
--- ¹®Á¦1. ÀÌ¸§ÀÌ ¡°JONES¡±ÀÎ »ç¿øÀÇ °ü¸® ÇÏ¿¡ ÀÖ´Â ¸ðµç »ç¿øÀÇ ÀÌ¸§, ±Þ¿©, ºÎ¼­ ¹øÈ£¸¦ Ç¥½ÃÇÏ´Â ÁúÀÇ¸¦ ÀÛ¼ºÇÏ½Ã¿À
+-- ë¬¸ì œ1. ì´ë¦„ì´ â€œJONESâ€ì¸ ì‚¬ì›ì˜ ê´€ë¦¬ í•˜ì— ìžˆëŠ” ëª¨ë“  ì‚¬ì›ì˜ ì´ë¦„, ê¸‰ì—¬, ë¶€ì„œ ë²ˆí˜¸ë¥¼ í‘œì‹œí•˜ëŠ” ì§ˆì˜ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤
 SELECT a.ename, a.sal, a.deptno, a.mgr
 FROM   emp a
 START WITH  a.ename = 'JONES'
 CONNECT BY a.mgr = PRIOR a.empno;
 
--- ¹®Á¦2. ÀÌ¸§ÀÌ ¡°ADAMS¡±ÀÎ »ç¿øÀÇ »óÀ§ °ü¸®ÀÚµéÀ» ¸ðµÎ Ç¥½ÃÇÏ´Â ÁúÀÇ¸¦ ÀÛ¼ºÇÏ½Ã¿À.
---        (´Ü, º»ÀÎÀ» Á¦¿ÜÇÑ »óÀ§ °ü¸®ÀÚµéÀÇ »ç¿ø ¹øÈ£ ¹× ÀÌ¸§À» Ãâ·ÂÇÏ½Ã¿À.)
+-- ë¬¸ì œ2. ì´ë¦„ì´ â€œADAMSâ€ì¸ ì‚¬ì›ì˜ ìƒìœ„ ê´€ë¦¬ìžë“¤ì„ ëª¨ë‘ í‘œì‹œí•˜ëŠ” ì§ˆì˜ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤.
+--        (ë‹¨, ë³¸ì¸ì„ ì œì™¸í•œ ìƒìœ„ ê´€ë¦¬ìžë“¤ì˜ ì‚¬ì› ë²ˆí˜¸ ë° ì´ë¦„ì„ ì¶œë ¥í•˜ì‹œì˜¤.)
 SELECT a.empno, a.ename
 FROM   emp a
 START WITH a.empno = (SELECT a.mgr
@@ -13,8 +13,8 @@ START WITH a.empno = (SELECT a.mgr
                       WHERE  a.ename = 'ADAMS')
 CONNECT BY a.empno = PRIOR a.mgr;
 
--- ¹®Á¦3. ÀÌ¸§ÀÌ ¡°JONES¡±ÀÎ »ç¿øÀÇ °ü¸® ÇÏ¿¡ ÀÖ´Â ¸ðµç »ç¿øÀÇ »ç¿ø ¹øÈ£, ÀÌ¸§, °ü¸®ÀÚ »ç¿ø ¹øÈ£¸¦ Ç¥½ÃÇÏ´Â ÁúÀÇ¸¦
---        ÀÛ¼ºÇÏ½Ã¿À. (´Ü, ¾Æ·¡¿Í °°ÀÌ ¡°ENAME" ¿­Àº °ü¸® °èÃþÀ» ÆÄ¾ÇÇÒ ¼ö ÀÖµµ·Ï µé¿©¾²±â¸¦ Àû¿ëÇÏ½Ã¿À.)
+-- ë¬¸ì œ3. ì´ë¦„ì´ â€œJONESâ€ì¸ ì‚¬ì›ì˜ ê´€ë¦¬ í•˜ì— ìžˆëŠ” ëª¨ë“  ì‚¬ì›ì˜ ì‚¬ì› ë²ˆí˜¸, ì´ë¦„, ê´€ë¦¬ìž ì‚¬ì› ë²ˆí˜¸ë¥¼ í‘œì‹œí•˜ëŠ” ì§ˆì˜ë¥¼
+--        ìž‘ì„±í•˜ì‹œì˜¤. (ë‹¨, ì•„ëž˜ì™€ ê°™ì´ â€œENAME" ì—´ì€ ê´€ë¦¬ ê³„ì¸µì„ íŒŒì•…í•  ìˆ˜ ìžˆë„ë¡ ë“¤ì—¬ì“°ê¸°ë¥¼ ì ìš©í•˜ì‹œì˜¤.)
 SELECT a.empno,
        CASE WHEN LEVEL = 1
        THEN a.ename
@@ -27,7 +27,7 @@ FROM   emp a
 START WITH a.ename = 'JONES'
 CONNECT BY a.mgr = PRIOR a.empno;
 
--- ¹®Á¦4. (CONNECT BY ÀýÀ» »ç¿ëÇÏÁö ¾Ê°í) SELF JOINÀ» »ç¿ëÇÏ¿© 3¹ø ¹®Á¦¸¦ Ç¥½ÃÇÏ´Â ÁúÀÇ¸¦ ÀÛ¼ºÇÏ½Ã¿À.
+-- ë¬¸ì œ4. (CONNECT BY ì ˆì„ ì‚¬ìš©í•˜ì§€ ì•Šê³ ) SELF JOINì„ ì‚¬ìš©í•˜ì—¬ 3ë²ˆ ë¬¸ì œë¥¼ í‘œì‹œí•˜ëŠ” ì§ˆì˜ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤.
 DROP TABLE EMP_LV1;
 DROP TABLE EMP_LV2;
 DROP TABLE EMP_LV3;
@@ -65,8 +65,8 @@ UNION
 SELECT *
 FROM   emp_lv3;
 
--- ¹®Á¦5. ¸ðµç »ç¿ø¿¡ ´ëÇØ °ü¸® °èÃþÀ» Ç¥½ÃÇÏ´Â ÁúÀÇ¸¦ ÀÛ¼ºÇÏ½Ã¿À. (´Ü, ÀÌ¸§ÀÌ ¡°BLAKE¡±ÀÎ »ç¿øÀÇ °ü¸® ÇÏ¿¡ ÀÖ´Â
---        »ç¿øµé°ú Á÷¹«°¡ ¡°ANALYST¡±ÀÎ »ç¿øµéÀº ¸ðµÎ Á¦¿ÜÇÏ°í Ãâ·ÂÇÏ½Ã¿À.)
+-- ë¬¸ì œ5. ëª¨ë“  ì‚¬ì›ì— ëŒ€í•´ ê´€ë¦¬ ê³„ì¸µì„ í‘œì‹œí•˜ëŠ” ì§ˆì˜ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤. (ë‹¨, ì´ë¦„ì´ â€œBLAKEâ€ì¸ ì‚¬ì›ì˜ ê´€ë¦¬ í•˜ì— ìžˆëŠ”
+--        ì‚¬ì›ë“¤ê³¼ ì§ë¬´ê°€ â€œANALYSTâ€ì¸ ì‚¬ì›ë“¤ì€ ëª¨ë‘ ì œì™¸í•˜ê³  ì¶œë ¥í•˜ì‹œì˜¤.)
 SELECT a.ename, a.job, a.empno, a.mgr
 FROM   emp a
 WHERE  a.job <> 'ANALYST'
@@ -74,8 +74,8 @@ START WITH a.ename = 'KING'
 CONNECT BY a.mgr = PRIOR a.empno
            AND a.ename <> 'BLAKE';
 
--- ¹®Á¦6. ¸ðµç »ç¿ø¿¡ ´ëÇØ °ü¸® °èÃþ(LEVEL) º°·Î ±Þ¿© ÇÕ°è ¹× Æò±Õ ±Þ¿©¸¦ ±¸ÇÏ½Ã¿À.
-SELECT '°ü¸® °èÃþ '||LEVEL MGR_LV,
+-- ë¬¸ì œ6. ëª¨ë“  ì‚¬ì›ì— ëŒ€í•´ ê´€ë¦¬ ê³„ì¸µ(LEVEL) ë³„ë¡œ ê¸‰ì—¬ í•©ê³„ ë° í‰ê·  ê¸‰ì—¬ë¥¼ êµ¬í•˜ì‹œì˜¤.
+SELECT 'ê´€ë¦¬ ê³„ì¸µ '||LEVEL MGR_LV,
        SUM(a.sal) SUM_SAL,
        ROUND(AVG(a.sal), 2) AVG_SAL
 FROM   emp a
@@ -83,9 +83,9 @@ START WITH a.ename = 'KING'
 CONNECT BY a.mgr = PRIOR a.empno
 GROUP BY LEVEL;
 
--- ¹®Á¦7. ¸ðµç »ç¿øÀ» ¡®ÃÖ»óÀ§ °ü¸®ÀÚ¡¯, ¡®Áß°£ °ü¸®ÀÚ¡¯, ¡®ÀÏ¹Ý »ç¿ø¡¯ÀÇ 3±×·ìÀ¸·Î ³ª´©°í, °¢ ±×·ì º° ±Þ¿© ÇÕ°è ¹× Æò±Õ ±Þ¿©
---        ¸¦ ±¸ÇÏ½Ã¿À.
-SELECT 'ÃÖ°í °ü¸®ÀÚ' MGR_LV,
+-- ë¬¸ì œ7. ëª¨ë“  ì‚¬ì›ì„ â€˜ìµœìƒìœ„ ê´€ë¦¬ìžâ€™, â€˜ì¤‘ê°„ ê´€ë¦¬ìžâ€™, â€˜ì¼ë°˜ ì‚¬ì›â€™ì˜ 3ê·¸ë£¹ìœ¼ë¡œ ë‚˜ëˆ„ê³ , ê° ê·¸ë£¹ ë³„ ê¸‰ì—¬ í•©ê³„ ë° í‰ê·  ê¸‰ì—¬
+--        ë¥¼ êµ¬í•˜ì‹œì˜¤.
+SELECT 'ìµœê³  ê´€ë¦¬ìž' MGR_LV,
        SUM(a.sal) SUM_SAL,
        ROUND(AVG(a.sal), 2) AVG_SAL
 FROM   emp a
@@ -94,8 +94,8 @@ START WITH a.ename = 'KING'
 CONNECT BY a.mgr = PRIOR a.empno
 UNION
 SELECT CASE WHEN MAX(CONNECT_BY_ISLEAF) = 1
-            THEN 'ÀÏ¹Ý »ç¿ø'
-            ELSE 'Áß°£ °ü¸®ÀÚ'
+            THEN 'ì¼ë°˜ ì‚¬ì›'
+            ELSE 'ì¤‘ê°„ ê´€ë¦¬ìž'
        END,
        SUM(a.sal),
        ROUND(AVG(a.sal), 2)
@@ -105,7 +105,7 @@ START WITH a.ename = 'KING'
 CONNECT BY a.mgr = PRIOR a.empno
 GROUP BY CONNECT_BY_ISLEAF;
 
--- ¹®Á¦8. ¸ðµç »ç¿ø¿¡ ´ëÇØ¼­ ¾Æ·¡¿Í °°ÀÌ ÀÚ½ÅÀÇ »óÀ§ °ü¸®ÀÚ(µé)¸¦ ¸ðµÎ ³ª¿­ÇÏ¿© Ç¥½ÃÇÏ½Ã¿À.
+-- ë¬¸ì œ8. ëª¨ë“  ì‚¬ì›ì— ëŒ€í•´ì„œ ì•„ëž˜ì™€ ê°™ì´ ìžì‹ ì˜ ìƒìœ„ ê´€ë¦¬ìž(ë“¤)ë¥¼ ëª¨ë‘ ë‚˜ì—´í•˜ì—¬ í‘œì‹œí•˜ì‹œì˜¤.
 SELECT a.empno,
        a.ename,
        SUBSTR(SYS_CONNECT_BY_PATH(a.ename, ', '), 3, INSTR(SYS_CONNECT_BY_PATH(a.ename, ', '), ',', -1)-3) MANAGERS
@@ -113,8 +113,8 @@ FROM   emp a
 START WITH a.ename = 'KING'
 CONNECT BY a.mgr = PRIOR a.empno;
 
--- ¹®Á¦9. ¸ðµç »ç¿ø¿¡ ´ëÇØ °ü¸® °èÃþÀ» Ç¥½ÃÇÏ´Â ÁúÀÇ¸¦ ÀÛ¼ºÇÏ½Ã¿À.
---        (´Ü, µ¿ÀÏ °èÃþ ³»¿¡¼­ ºÎ¼­ ¹øÈ£ÀÇ ³»¸²Â÷¼ø, »ç¿ø ÀÌ¸§ÀÇ ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ¿© ³ªÅ¸³»½Ã¿À.)
+-- ë¬¸ì œ9. ëª¨ë“  ì‚¬ì›ì— ëŒ€í•´ ê´€ë¦¬ ê³„ì¸µì„ í‘œì‹œí•˜ëŠ” ì§ˆì˜ë¥¼ ìž‘ì„±í•˜ì‹œì˜¤.
+--        (ë‹¨, ë™ì¼ ê³„ì¸µ ë‚´ì—ì„œ ë¶€ì„œ ë²ˆí˜¸ì˜ ë‚´ë¦¼ì°¨ìˆœ, ì‚¬ì› ì´ë¦„ì˜ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì—¬ ë‚˜íƒ€ë‚´ì‹œì˜¤.)
 SELECT LEVEL,
        a.empno,
        LPAD('_', (LEVEL-1)*2, '_')||a.ename,
@@ -124,7 +124,7 @@ START WITH a.ename = 'KING'
 CONNECT BY a.mgr = PRIOR a.empno
 ORDER SIBLINGS BY a.deptno DESC, a.ename;
 
--- ¹®Á¦10. °¢ »ç¿ø º°·Î ÀÚ½ÅÀÇ ±Þ¿© ¹× »óÀ§ °ü¸®ÀÚµéÀÇ ±Þ¿©¿¡ ´ëÇÑ ÀüÃ¼ ÇÕ°è¸¦ Ç¥½ÃÇÏ½Ã¿À
+-- ë¬¸ì œ10. ê° ì‚¬ì› ë³„ë¡œ ìžì‹ ì˜ ê¸‰ì—¬ ë° ìƒìœ„ ê´€ë¦¬ìžë“¤ì˜ ê¸‰ì—¬ì— ëŒ€í•œ ì „ì²´ í•©ê³„ë¥¼ í‘œì‹œí•˜ì‹œì˜¤
 SELECT MAX(CONNECT_BY_ROOT a.empno) EMPNO,
        MAX(CONNECT_BY_ROOT a.ename) ENAME,
        SUM(a.sal) SUM_SAL
@@ -132,4 +132,4 @@ FROM emp a
 CONNECT BY a.empno = PRIOR a.mgr
 GROUP BY CONNECT_BY_ROOT a.ename;
 
-
+ 
