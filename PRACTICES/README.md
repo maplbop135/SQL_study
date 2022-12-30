@@ -75,4 +75,4 @@
 　**UNPIVOT**: transform data from columns to rows  
 　　~**FOR**: limits the query to only specified values  
 
-(Still writing... ~실습4)
+(Still writing... ~실습8)
